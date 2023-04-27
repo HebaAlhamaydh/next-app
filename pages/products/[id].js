@@ -20,6 +20,7 @@ export default function Details({product}) {
       </div>
   )
 }
+//to determine how many path i can pass it 
 export async function getStaticPaths(){
     const req=await fetch('https://fakestoreapi.com/products')
     const products=await req.json();
@@ -33,10 +34,11 @@ export async function getStaticPaths(){
     })
     return{
         paths,
+        //give me error when the page is not found
         fallback: false
     }
 }
-
+//send request for each path and available it as props for each component 
 export async function getStaticProps(context) {
     const id=context.params.id;
     const req=await fetch('https://fakestoreapi.com/products/'+id)
