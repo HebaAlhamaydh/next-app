@@ -20,7 +20,7 @@ export default function Details({product}) {
       </div>
   )
 }
-//to determine how many path i can pass it 
+//to determine how many path i can pass it i did map to return id 
 export async function getStaticPaths(){
     const req=await fetch('https://fakestoreapi.com/products')
     const products=await req.json();
